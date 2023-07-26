@@ -2,14 +2,18 @@ import { useState, useEffect } from 'react'
 import lib from './lib'
 import Module from './Module';
 
+const currentDate = new Date();
+
 function App() {
 
     const [modules , setModules ] = useState([]);
-    const [debut, setDebut] = useState();
+    const [debut, setDebut] = useState(currentDate.toISOString().split('T')[0]);
+
+    
 
     const handle = (evt) => {
         // console.log(evt);
-        setModules([...modules, { nom: "Accueil", debut: "2023-07-01", duree: 37}])
+        setModules([...modules, { nom: "Accueil", debut: debut, duree: 37}])
     };
 
     const handleDeleteModule = (index) => {
@@ -85,10 +89,6 @@ function App() {
                         <div className="col-4">
                             
                             <button className="btn btn-primary my-3 w-100" onClick={handle}>Ajouter un module</button>
-
-                        </div>
-                        <div className="col-4">
-                            <button className="btn btn-primary my-3 w-100" onClick={handle}>Calculer</button>
 
                         </div>
                     </div>

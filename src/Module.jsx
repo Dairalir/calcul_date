@@ -28,6 +28,13 @@ function Module(props) {
         setDuree(props.data.duree)
     }, [props.data.duree]);
 
+    useEffect( () =>{
+        const dateDebut = new Date(debut);
+        dateDebut.setDate(dateDebut.getDate() + duree);
+        setFin(dateDebut.toISOString().split('T')[0])
+    }, [duree]);
+
+
     return (
         <div className='row module' style={{backgroundColor: couleur}}>
             <div className="col-11">
@@ -40,22 +47,27 @@ function Module(props) {
                 <a  className="btn btn-primary" ><Icon.ArrowUp /></a>
             </div>
             <div className="col-3">
-            <a  className="btn btn-danger" onClick={props.onDelete}><Icon.Trash /></a>
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Journée entière</label>
+                <a  className="btn btn-danger" onClick={props.onDelete}><Icon.Trash /></a>
+                <div className="form-check form-switch">
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Journée entière</label>
+                </div>
             </div>
-
+            <div className="col-2">
+                <div className="form-floating">
+                    <input type="date" className="form-control" id="floatingInput2" disabled placeholder="Date de début" value={debut} onChange={ e => setDebut(e.target.value) }/>
+                    <label htmlFor="floatingInput2">Date de début </label>
+                </div>
             </div>
-            <div className="col-3">
+            <div className="col-2">
                 <div className="form-floating">
                     <input type="date" className="form-control" id="floatingInput2" disabled placeholder="Date de début" value={fin} onChange={ e => setFin(e.target.value) }/>
                     <label htmlFor="floatingInput2">Date de fin</label>
                 </div>
             </div>
-            <div className="col-3">
+            <div className="col-2">
                 <div className="form-floating mb-2">
-                    <input type="number" className="form-control" id="floatingInput3" placeholder="Durée" value={duree} onChange={ e => setDuree(e.target.value) }/>
+                    <input type="number" className="form-control" id="floatingInput3" placeholder="Durée" value={duree} onChange={ e => setDuree(Math.max(0, parseInt(e.target.value))) }/>
                     <label htmlFor="floatingInput3">Durée</label>
                 </div>
             </div>
