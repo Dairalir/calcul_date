@@ -9,7 +9,7 @@ function Module(props) {
     const [couleur, setCouleur] = useState("#DD6677");
     const [duree, setDuree] = useState(props.data.duree);
     const [debut, setDebut] = useState(props.data.debut);
-    const [fin, setFin] = useState(null);
+    const [fin, setFin] = useState(props.data.debut);
 
     const handleChange = (evt) => {
         // console.log(evt);

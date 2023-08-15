@@ -7,7 +7,7 @@ export function Modules(props) {
     const [debut, setDebut] = useState(currentDate.toISOString().split('T')[0]);
 
     const createModule = (evt) => {
-        props.setModules([...props.modules, { nom: "Accueil", debut: debut, duree: 37}])
+        props.setModules([...props.modules, { nom: "Accueil", debut: debut, duree: 37, id: Math.random}])
     };
 
     const deleteModule = (index) => {

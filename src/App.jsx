@@ -18,7 +18,7 @@ function App() {
                     <Routes>
                         <Route path="/modules" element={<Modules setModules={setModules} modules={modules}/>} />
                         <Route path="/interruptions" element={<Interruptions/>} />
-                        <Route path="/calendrier" element={<Calendrier/>} /> 
+                        <Route path="/calendrier" element={<Calendrier modules={modules}/>} /> 
                     </Routes>
                 </div>
             </div>
