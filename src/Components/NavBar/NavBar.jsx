@@ -11,13 +11,13 @@ export function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link " aria-current="page" to="/modules">Modules</Link>
+                            <Link className="nav-link " to="/modules">Modules</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link " href="#">Interruptions</a>
+                            <Link className="nav-link " to="/interruptions">Interruptions</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Calendrier</a>
+                            <Link className="nav-link" to="/calendrier">Calendrier</Link>
                         </li>
                     </ul>
                 </div>
