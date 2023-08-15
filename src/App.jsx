@@ -3,6 +3,7 @@ import lib from './lib'
 import Module from './Components/Module/Module.jsx';
 import { Modules } from './Pages/Modules/Modules';
 import { NavBar } from './Components/NavBar/NavBar';
+import { Route, Routes } from 'react-router';
 
 function App() {
     const [modules , setModules ] = useState([]);
@@ -12,7 +13,9 @@ function App() {
             <div className="row">
                 <div className="col-12">             
                     <NavBar/>
-                    <Modules setModules={setModules} modules={modules}/>
+                    <Routes>
+                        <Route path="/modules" element={<Modules setModules={setModules} modules={modules}/>}/>
+                    </Routes>
                 </div>
             </div>
         </div>

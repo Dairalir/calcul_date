@@ -22,9 +22,7 @@ export function Modules(props) {
         props.setModules([...tmp])
     };
 
-
     return (
-        
         <div className="row">
             <div className='col-4'>
                 <div className="form-floating">
