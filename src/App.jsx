@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import lib from './lib'
-import Module from './Module';
+import Module from './Components/Module/Module.jsx';
 
 const currentDate = new Date();
 

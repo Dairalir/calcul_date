@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as Icon from 'react-bootstrap-icons';
-import lib from './lib'
+import lib from '../../lib'
 
 function Module(props) {
 
