@@ -2,11 +2,14 @@ import { Gantt } from 'gantt-task-react';
 import "gantt-task-react/dist/index.css";
 
 export function Calendrier(props) {
+    if(props.modules.length === 0){
+        return <p>Pas de Modules Créer</p>
+    }
 
     return (
         <Gantt tasks={props.modules.map( (module) => {
 
-            const dateFin =new Date(module.debut)
+            const dateFin = new Date(module.debut)
             dateFin.setDate(dateFin.getDate() + module.duree);
 
             return {
@@ -17,7 +20,7 @@ export function Calendrier(props) {
                 type:'task',
                 progress: 100,
                 isDisabled: true,
-                styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
+                styles: { progressColor: module.couleur , progressSelectedColor: '#ff9e0d' },
             }}
         )
         } />
