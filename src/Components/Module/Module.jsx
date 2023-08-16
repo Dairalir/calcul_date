@@ -12,13 +12,19 @@ function Module(props) {
     const [fin, setFin] = useState(props.data.debut);
 
     const handleChange = (evt) => {
-        // console.log(evt);
         let tmp = {...data}
+        console.log(tmp),
         tmp[evt.target.name] = evt.target.value
+        console.log(evt.target.name),
         setData({...tmp})
         props.onChange(tmp)
     };
-    
+
+    const handleDuree = (newDuree) => {
+        const tmp = {...data}
+        tmp.duree = newDuree
+        props.onChange(tmp)
+    };
 
     useEffect( () => {
         setCouleur("#" + Math.floor(Math.random()*0xffffff).toString(16))
@@ -67,7 +73,7 @@ function Module(props) {
             </div>
             <div className="col-2">
                 <div className="form-floating mb-2">
-                    <input type="number" className="form-control" id="floatingInput3" placeholder="Durée" value={duree} onChange={ e => setDuree(Math.max(0, parseInt(e.target.value))) }/>
+                    <input type="number" className="form-control" name='duree' id="floatingInput3" placeholder="Durée" value={props.data.duree} onChange={ e => handleDuree(Math.max(0, parseInt(e.target.value))) }/>
                     <label htmlFor="floatingInput3">Durée</label>
                 </div>
             </div>
